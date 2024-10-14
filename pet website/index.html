@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pet Care</title>
+</head>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .nav {
+        height: 60px;
+        display: flex;
+        justify-content: space-between;
+        padding: 15px 107px;
+        background-color: white;
+        align-items: center;
+    }
+
+    .nav .logo h1 {
+        color: #ff9200;
+    }
+
+    .nav .item {
+        cursor: pointer;
+        display: flex;
+        column-gap: 20px;
+        font-size: 20px;
+    }
+
+    .nav .item a {
+        text-decoration: none;
+        color: black;
+    }
+
+    .home {
+        height: 510px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        background-color: whitesmoke;
+    }
+
+    .home .main-sec {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 70px;
+        column-gap: 40px;
+    }
+
+    .home .main-sec .left {
+        height: 450px;
+        width: 900px;
+        display: flex;
+        padding: 30px;
+        flex-direction: column;
+        row-gap: 10px;
+        justify-content: center;
+    }
+    
+    .home .main-sec .left .pet {
+        color: #ff9200;
+    }
+
+    .home .main-sec .left .mem {
+        font-size: 4rem;
+        font-weight: 700;
+    }
+
+    .home .main-sec .left input {
+        padding: 20px 30px;
+        border-radius: 40px;
+        cursor: pointer;
+        border: none;
+        background-color: #ff9200;
+        width: fit-content;
+    }
+
+    .home .main-sec .right {
+        height: 450px;
+        width: 900px;
+        display: flex;
+        padding: 30px;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+    }
+
+    .service-sec {
+        display: flex;
+        height: 390px;
+        padding: 30px;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .service-sec .main-box .box {
+        background: white;
+        padding: 20px;
+        width: 320px;
+        height: 250px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        row-gap: 20px;
+        border-radius: 10px;
+        align-items: center;
+        box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    }
+
+    .service-sec .main-box {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 30px;
+        column-gap: 40px;
+    }
+
+    .service-sec .main-box .box i {
+        font-size: 4rem;
+    }
+
+    .service-sec .main-box .box .learn {
+        display: flex;
+        column-gap: 5px;
+        justify-content: center;
+        align-items: center;
+        background: #ff9200;
+        padding: 6px 19px;
+        border-radius: 30px;
+        cursor: pointer;
+    }
+
+    .service-sec .main-box .box .learn i {
+        font-size: 25px;
+    }
+
+    .service-sec .main-box .box p {
+        text-align: center;
+    }
+
+    .service-sec .txt {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        row-gap: 10px;
+    }
+
+    .care-sec {
+        display: flex;
+        height: 430px;
+        padding: 30px;
+        flex-direction: column;
+        align-items: center;
+        background-color: whitesmoke;
+    }
+
+    .care-sec .main-box {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 30px;
+        column-gap: 87px;
+    }
+
+    .care-sec .main-box .right {
+        padding: 30px;
+        display: flex;
+        flex-direction: column;
+        row-gap: 20px;
+        width: 33vw;
+    }
+
+    .care-sec .main-box .learn {
+        display: flex;
+        column-gap: 5px;
+        justify-content: center;
+        align-items: center;
+        background: #ff9200;
+        padding: 6px 19px;
+        border-radius: 30px;
+        width: fit-content;
+        cursor: pointer;
+    }
+
+    .care-sec .main-box .learn i {
+        font-size: 25px;
+    }
+
+    .care-sec .main-box .right .pet {
+        color: #ff9200;
+    }
+
+    .care-sec .main-box .right .head {
+        font-size: 3rem;
+        font-weight: 600;
+    }
+
+    .read-sec {
+        height: 550px;
+        display: flex;
+        justify-content: center;
+        padding: 30px;
+        flex-direction: column;
+    }
+
+    .read-sec .main-box {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 30px;
+        column-gap: 20px;
+    }
+
+    .read-sec .main-box .box {
+        background: white;
+        width: 340px;
+        overflow: hidden;
+        padding: 20px;
+        box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+        display: flex;
+        flex-direction: column;
+        row-gap: 20px;
+        border-radius: 10px;
+    }
+
+    .read-sec .main-box .box p {
+        text-align: justify;
+        line-height: 20px;
+    }
+
+    .read-sec .txt {
+        display: flex;
+        flex-direction: column;
+        row-gap: 10px;
+        align-items: center;
+    }
+
+    .read-sec .main-box .box img {
+        width: 340px;
+        height: 227px;
+    }
+
+    .read-sec .main-box .box .read {
+        display: flex;
+        column-gap: 5px;
+        justify-content: center;
+        border: none;
+        align-items: center;
+        background: #ff9200;
+        padding: 6px 19px;
+        border-radius: 30px;
+        width: fit-content;
+        cursor: pointer;
+    }
+
+    .read-sec .main-box .box .read i {
+        font-size: 25px;
+    }
+
+    .client-sec {
+        height: 340px;
+        display: flex;
+        padding: 30px;
+        flex-direction: column;
+        background-color: whitesmoke;
+    }
+
+    .client-sec .txt {
+        display: flex;
+        flex-direction: column;
+        row-gap: 10px;
+        align-items: center;
+    }
+
+    .client-sec .main-box {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 30px;
+        column-gap: 20px;
+    }
+
+    .client-sec .main-box .box {
+        background: white;
+        width: 340px;
+        overflow: hidden;
+        padding: 20px;
+        box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+        display: flex;
+        flex-direction: column;
+        row-gap: 20px;
+        border-radius: 10px;
+    }
+
+    .client-sec .main-box .box p {
+        text-align: justify;
+        line-height: 20px;
+    }
+
+    .client-sec .main-box .box .client {
+        display: flex;
+        align-items: center;
+        column-gap: 20px;
+    }
+
+    .client-sec .main-box .box .client img {
+        width: 50px;
+        height: 50px;
+        border: 1px solid #ff9200;
+        border-radius: 50%;
+    }
+
+    .foot-sec {
+        height: 250px;
+        padding: 30px;
+        justify-content: center;
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .foot-sec .main-sec {
+        display: flex;
+        column-gap: 167px;
+    }
+
+    .foot-sec .main-sec .box {
+        display: flex;
+        flex-direction: column;
+        row-gap: 20px;
+    }
+
+    .foot-sec .main-sec .box2 {
+        display: flex;
+        flex-direction: column;
+        row-gap: 20px;
+    }
+
+    .foot-sec .main-sec .box2 .item {
+        display: flex;
+        flex-direction: column;
+        row-gap: 20px;
+    }
+
+    .foot-sec .main-sec .box2 .item a {
+        text-decoration: none;
+        color: black;
+    }
+
+    .foot-sec .main-sec .box .social {
+        display: flex;
+        column-gap: 20px;
+    }
+
+    .foot-sec .main-sec .box .social i {
+        font-size: 38px;
+        width: 60px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #ff9200;
+        cursor: pointer;
+        height: 60px;
+        border-radius: 45px;
+    }
+
+    .foot-sec .main-sec .box3 {
+        display: flex;
+        flex-direction: column;
+        row-gap: 15px;
+    }
+
+    .foot-sec .copy {
+        margin-top: 55px;
+    }
+
+    .foot-sec .copy span {
+        color: #ff9200;
+    }
+    
+        
+</style>
+<body>
+    <nav class="nav">
+        <div class="logo">
+            <h1>Pet Center</h1>
+        </div>
+        <div class="item">
+            <a href="">Home</a>
+            <a href="">Service</a>
+            <a href="">Privacy Policy</a>
+            <a href="">Contact Us</a>
+        </div>
+    </nav>
+
+    <section class="home">
+        <div class="main-sec">
+            <div class="left">
+                <p class="pet">Pet Care Center</p>
+                <p class="mem">Pets are our family members now</p>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Provident eos debitis nulla sequi recusandae, tempore dignissimos adipisci repellendus, a magni velit modi rem deleniti commodi earum harum quam iste officia!</p>
+                <input type="button" value="Contact Us">
+            </div>
+
+            <div class="right">
+                <img style="width: 560px;" src="https://static.vecteezy.com/system/resources/previews/018/871/732/original/cute-and-happy-dog-png.png" alt="">
+            </div>
+        </div>
+    </section>
+
+    <section class="service-sec">
+        <div class="txt">
+            <h1>Our Service</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi, aliquid!</p>
+        </div>
+
+        <div class="main-box">
+            <div class="box">
+                <i class="fa-solid fa-lightbulb"></i>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque blanditiis aliquid, pariatur, necessitatibus
+                    maxime quia praesentium similique obcaecati quod sequi, omnis dolor at ullam quidem quae nemo ducimus sit
+                    quasi.</p>
+                    <div class="learn">
+                        <p>Learn More</p>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </div>
+            </div>
+
+            <div class="box">
+                <i class="fa-solid fa-layer-group"></i>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque blanditiis aliquid, pariatur, necessitatibus
+                    maxime quia praesentium similique obcaecati quod sequi, omnis dolor at ullam quidem quae nemo ducimus sit
+                    quasi.</p>
+                    <div class="learn">
+                        <p>Learn More</p>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </div>
+            </div>
+
+            <div class="box">
+                <i class="fa-regular fa-credit-card"></i>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque blanditiis aliquid, pariatur, necessitatibus
+                    maxime quia praesentium similique obcaecati quod sequi, omnis dolor at ullam quidem quae nemo ducimus sit
+                    quasi.</p>
+                    <div class="learn">
+                        <p>Learn More</p>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="care-sec">
+        <div class="main-box">
+            <div class="left">
+                <img src="https://img.freepik.com/premium-photo/pet-care-veterinary-clinic-doctor-concept_1194-584292.jpg" alt="">
+            </div>
+
+            <div class="right">
+                <p class="pet">Pet Care Service</p>
+                <p class="head">We Care Your Pet</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident nisi iusto consectetur nemo repellendus
+                    quam sed excepturi. Natus, cumque molestias. Omnis reprehenderit facilis in odio earum consequuntur maiores
+                    nobis voluptatem.</p>
+                    <div class="learn">
+                        <p>Learn More</p>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="read-sec">
+        <div class="txt">
+            <h1>Read More And Learn More</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi, aliquid!</p>
+        </div>
+
+        <div class="main-box">
+            <div class="box">
+                <img src="https://plus.unsplash.com/premium_photo-1663011296454-e68f12e316e3?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
+                <p>Lorem ipsum dolor sit maet consectetur adipiscing elit. Ex neque laudantiumbeatae volptatem cupiditate in sunt, officiis non voluptas quasi.</p>
+                <div class="read">
+                    <p>Learn More</p>
+                    <i class="fa-solid fa-arrow-right"></i>
+                </div>
+            </div>
+
+            <div class="box">
+                <img src="https://img1.wsimg.com/isteam/stock/88197" alt="">
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ex neque laudantium beatae voluptatem cupiditate in
+                    sunt, officiis non voluptas quasi.</p>
+                    <div class="read">
+                        <p>Learn More</p>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </div>
+            </div>
+
+            <div class="box">
+                <img src="https://images.destpet.com/is/image/destpet/woman-veterinarian-examines-brown-dog" alt="">
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ex neque laudantium beatae voluptatem cupiditate in
+                    sunt, officiis non voluptas quasi.</p>
+                <div class="read">
+                    <p>Learn More</p>
+                    <i class="fa-solid fa-arrow-right"></i>
+                </div>    
+            </div>
+        </div>
+    </section>
+
+    <section class="client-sec">
+        <div class="txt">
+            <h1>What Our Client Says</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicingelit. Animi, aliquid!</p>
+        </div>
+
+        <div class="main-box">
+            <div class="box">
+                <p>>Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero doloribus voluptate, similique quas commodi
+                    mollitia nostrum, saepe est laboriosam nobis inventore voluptatibus, architecto ab assumenda amet iusto. At,
+                    sit corrupti.</p>
+                <div class="client">
+                    <img src="https://images.destpet.com/is/image/destpet/woman-veterinarian-examines-brown-dog" alt="">
+                    <div class="txt">
+                        <p>Demo Name</p>
+                        <p>Lorem, ipsum dolor.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="box">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero doloribus voluptate, similique quas commodi
+                    mollitia nostrum, saepe est laboriosam nobis inventore voluptatibus, architecto ab assumenda amet iusto. At,
+                    sit corrupti.</p>
+                <div class="client">
+                    <img src="https://images.destpet.com/is/image/destpet/woman-veterinarian-examines-brown-dog" alt="">
+                    <div class="txt">
+                        <p>Demo Name</p>
+                        <p>Lorem, ipsum dolor.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="box">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero doloribus voluptate, similique quas commodi
+                    mollitia nostrum, saepe est laboriosam nobis inventore voluptatibus, architecto ab assumenda amet iusto. At,
+                    sit corrupti.</p>
+                <div class="client">
+                    <img src="https://images.destpet.com/is/image/destpet/woman-veterinarian-examines-brown-dog" alt="">
+                    <div class="txt">
+                        <p>Demo Name</p>
+                        <p>Lorem, ipsum dolor.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="foot-sec">
+        <div class="main-sec">
+            <div class="box">
+                <h1>Pet Center</h1>
+                <div class="social">
+                    <i class="fa-brands fa-square-instagram"></i>
+                    <i class="fa-brands fa-facebook"></i>
+                    <i class="fa-brands fa-youtube"></i>
+                </div>
+            </div>
+
+            <div class="box2">
+                <h1>Pet Center</h1>
+                <div class="item">
+                    <a href="">Home</a>
+                    <a href="">Service</a>
+                    <a href="">Privacy Policy</a>
+                    <a href="">Contact Us</a>
+                </div>
+            </div>
+
+            <div class="box2">
+                <h1>Product</h1>
+                <div class="item">
+                    <a href="">Home</a>
+                    <a href="">Service</a>
+                    <a href="">Privacy Policy</a>
+                    <a href="">Contact Us</a>
+                </div>
+            </div>
+
+            <div class="box3">
+                <h1>Contact Us</h1>
+                <div class="add">
+                    <p><i class="fa-regular fa-envelope"></i>demo2024@gmail</p>
+                    <p><i class="fa-solid fa-phone"></i>+9999-9999-99</p>
+                    <p><i class="fa-solid fa-circle-check"></i>www.demo.com</p>
+                </div>
+            </div>
+        </div>
+        <div class="copy">
+            <p>Copyright 2024 &copy; Design By <span>Piyush</span></p>
+        </div>
+    </footer>
+</body>
+</html>
